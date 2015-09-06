@@ -1,0 +1,50 @@
+ <div class="modal-body">
+         <div id="order_form">
+            <%= form_for(@order) do |f| %>
+              <% if @order.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+                  <ul>
+                  <% @order.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+              
+              <div class="field">
+                <%= f.text_field :order_details,  :class =>"input-xxlarge" %>
+              </div>
+              <div class="field">
+                <%= f.text_field :customer_name,  :class =>"input-xxlarge", :placeholder => "your name" %>
+              </div>
+              <div class="field">
+                <%= f.text_field :contact_email,  :class =>"input-xxlarge", :placeholder => "your email" %>
+              </div>
+              <div class="field">
+                <%= f.text_field :contact_number,  :class =>"input-xxlarge", :placeholder => "your phone" %>
+              </div>
+              <div class="field">
+                <%= f.text_area :contact_address,  :class =>"input-xxlarge",:placeholder => "shipping address", :rows => "3" %>
+              </div>
+              <div class="field">
+                <%= f.text_area :message, :rows => "6" ,:class =>"input-xxlarge" ,:placeholder => "your message"%>
+              </div>
+      </div>
+
+</div>
+<div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>   
+      <%= f.submit "Send", :class =>"btn btn-1", :id =>"sent_order"  %>
+</div>
+
+<% end %>
+
+
+<script type="text/javascript">
+    $("#sent_order").on("click",function() {
+        alert("Thanks You.Your order is submitted successfully");
+    });
+</script>

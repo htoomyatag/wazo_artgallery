@@ -1,0 +1,70 @@
+<div class="page-header">
+  <h1>Edit Order <small>details infomation</small></h1>
+</div>
+
+
+<%= form_for @order, :html => { :multipart => true, :class =>"form-horizontal" } do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+              </div>
+  </div>
+  <% end %>
+
+
+	<div class="control-group">
+    	<label class="control-label" for="inputEmail">CustomerName</label>
+        <div class="controls">
+           <%= f.text_field :customer_name%>
+        </div>
+    </div>
+
+    <div class="control-group">
+    	<label class="control-label" for="inputEmail">CustomerEmail</label>
+        <div class="controls">
+             <%= f.text_field :contact_email %>
+        </div>
+    </div>
+
+    <div class="control-group">
+    	<label class="control-label" for="inputEmail">ContactNumber</label>
+        	<div class="controls">
+                <%= f.text_field :contact_number,  :class =>"input-xxlarge", :placeholder => "your phone" %>
+            </div>
+    </div>
+              
+    <div class="control-group">
+    	<label class="control-label" for="inputEmail">ContactAddress</label>
+        	<div class="controls">
+                <%= f.text_area :contact_address,  :class =>"input-xxlarge",:placeholder => "shipping address", :rows => "3" %>
+        </div>
+    </div>
+
+
+    <div class="control-group">
+    	<label class="control-label" for="inputEmail">Message</label>
+        	<div class="controls">
+                <%= f.text_area :message, :rows => "6" ,:class =>"input-xxlarge" ,:placeholder => "your message"%>
+             </div>
+    </div>
+
+
+   <div class="control-group">
+        <div class="controls">
+      <%= f.submit  :class => "btn" %>
+  </div>
+  </div>
+<% end %>
+
+
+
+
+
+<%= link_to 'Show', @order %> |
+<%= link_to 'Back', orders_path %>

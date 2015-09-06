@@ -1,0 +1,81 @@
+
+<%= form_for @paint, :html => { :multipart => true, :class =>"form-horizontal" } do |f| %>
+  <% if @paint.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@paint.errors.count, "error") %> prohibited this paint from being saved:</h2>
+
+      <ul>
+      <% @paint.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
+
+   <div class="control-group">
+    <label class="control-label" for="inputEmail">Title</label>
+        <div class="controls">
+          <%= f.text_field :title %>
+        </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Type</label>
+        <div class="controls">
+          <%= f.select :paint_type_id, PaintType.all.collect { |c| [c.type_name, c.id] } %>
+        </div>
+  </div>
+
+
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Size</label>
+        <div class="controls">
+          <%= f.select :size_id, Size.all.collect { |c| [c.size, c.id] }%>
+        </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Price</label>
+        <div class="controls">
+          <%= f.text_field :price %>
+        </div>
+  </div>
+
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Is that new arrival</label>
+        <div class="controls">
+          <%= f.select(:new_arrival, Paint::NEW_ARRIVAL, {include_blank: 'Choose'}) %>
+        </div>
+  </div>
+
+  <div class="control-group">
+    <label class="control-label" for="inputEmail">Is that our art work</label>
+        <div class="controls">
+          <%= f.select(:our_artwork, Paint::OUR_ARTWORK, {include_blank: 'Choose'}) %>
+        </div>
+  </div>
+
+
+   <div class="control-group">
+    <label class="control-label" for="inputEmail">Artist</label>
+        <div class="controls">
+          <%= f.select :artist_id, Artist.where("painter_type='Painter'").collect { |c| [c.name, c.id] } %>
+        </div>
+  </div>
+
+   <div class="control-group">
+    <label class="control-label" for="inputEmail">Avatar</label>
+        <div class="controls">
+          <%= f.file_field :avatar %>
+        </div>
+  </div>
+
+   <div class="control-group">
+        <div class="controls">
+      <%= f.submit  :class => "btn" %>
+  </div>
+  </div>
+<% end %>

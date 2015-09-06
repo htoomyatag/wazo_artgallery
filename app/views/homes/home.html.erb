@@ -1,0 +1,329 @@
+
+<header>
+  <div class="container clearfix">
+    <div class="row">
+          <div class="span12">
+        <div class="navbar navbar_">
+              <div class="container"> 
+              <%= image_tag  "your_logo_here.png", :style => "postition:relative;top:50px;" %> 
+
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse_">Menu <span cartlass="icon-bar"></span> </a>
+            <div class="nav-collapse nav-collapse_  collapse">
+              <ul class="nav sf-menu">
+                <li class="sub-menu active"><a href="/">Home</a></li>
+                <li ><a class="sf-with-ul">Gallery</a>
+                  <ul>
+                    <li><a href="/art_gallery">Art Gallery</a></li><hr>
+                    <li><a href="/photo_gallery">Photo Gallery</a></li>
+                  </ul>
+                </li>
+                <li ><a href="/exhibition">Exhibitions</a></li>
+                <li><a href="/terms_and_conditions">Terms and Conditions</a></li>
+                <li ><a href="/contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+            </div>
+      </div>
+        </div>
+  </div>
+    </header>
+
+<div class="bg-content">
+  <div class="container">
+    <div class="row">
+      <div class="span12"> 
+        <!--============================== slider =================================-->
+        <div class="flexslider">
+          <ul class="slides">
+            <li>  <%= image_tag "sl_1.jpg"  %>  </li>
+            <li>  <%= image_tag "sl_2.jpg"  %>  </li>
+            <li>  <%= image_tag "sl_4.jpg"  %>  </li>
+            <li>  <%= image_tag "sl_3.jpg"  %>  </li>
+            <li>  <%= image_tag "sl_5.jpg"  %>  </li>
+          </ul>
+        </div>
+        <span id="responsiveFlag"></span>
+        <div class="block-slogan">
+          <h2>Welcome!</h2>
+          <div>
+            <p>Welcome from ColorCube Art Gallery.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      
+      <!--============================== content =================================-->
+      
+    <div id="content" class="content-extra">
+    <div class="row-1">
+      <div class="container">
+        <div class="row"><br/>
+    
+          <div class="block-slogan">
+            <h2>&nbsp;&nbsp;New Arrivals</h2>
+          </div> 
+<ul class="thumbnails thumbnails-1">
+    
+
+        
+          <% @new_paints.each do |paint| %>
+              <li class="span3">
+                <div class="thumbnail thumbnail-1" onMouseOver="show('div<%= paint.id %>')" onMouseOut="hide('div<%= paint.id %>')">
+                    <h5>
+
+                        <table style="width:100%">
+                            <tr>
+                              <td style="width:50%">
+                                Price: <%= paint.price rescue "-" %>
+                              </td>
+                              <td> 
+                              <span data-toggle="modal" data-target="#myModal<%= paint.id %>order">
+                                <%= image_tag "order_button.jpg", :id => "ordernow"  %></td> 
+                              </span>
+                            </tr>
+                            <tr>
+                        </table>
+                      
+                     
+                    </h5>
+                    <span data-toggle="modal" data-target="#myModal<%= paint.id %>">
+                        <%= image_tag paint.avatar.url(:medium), :id => "mypaint" %>
+                    </span>
+                </div><br/>
+              
+                <div id="div<%= paint.id %>" style="visibility: hidden;">
+                   <h5 style="color:white;">
+                     <%= paint.title rescue "-" %><br/>
+                   </h5>
+                   <p style="color:white;">
+                     Published: <%= paint.published_date rescue "-" %>
+                     <br/>
+                     Size: <%= paint.size.size rescue "-" %> |
+                     Type: <%= paint.paint_type.type_name rescue "-" %><br/>
+                     Created by: <%= paint.artist.name rescue "-" %>
+                   </p>
+                </div>
+              </li>
+
+
+              <!-- Modal -->
+              <span class="modal fade" id="myModal<%= paint.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+                <%= image_tag paint.avatar.url, :id => "modelpic" %>
+              </span><!-- /.modal -->
+
+
+        <% end %>
+        <div style="float:right;"><%= will_paginate @new_paints %></div>
+          
+          </ul>
+
+          <div class="block-slogan">
+            <h2>&nbsp;&nbsp;Our Artworks</h2>
+          </div> 
+
+
+          <ul class="thumbnails thumbnails-1">
+          <% @art_paints.each do |paint| %>
+              <li class="span3">
+                <div class="thumbnail thumbnail-1" onMouseOver="show('div<%= paint.id %>')" onMouseOut="hide('div<%= paint.id %>')">
+                    <h5>
+
+                        <table style="width:100%">
+                            <tr>
+                              <td style="width:50%">
+                                Price: <%= paint.price rescue "-" %>
+                              </td>
+                              <td> 
+                              <span data-toggle="modal" data-target="#myModal<%= paint.id %>order">
+                                <%= image_tag "order_button.jpg", :id => "ordernow"  %></td> 
+                              </span>
+                            </tr>
+                            <tr>
+                        </table>
+                      
+                     
+                    </h5>
+                    <span data-toggle="modal" data-target="#myModal<%= paint.id %>">
+                        <%= image_tag paint.avatar.url(:medium), :id => "mypaint" %>
+                    </span>
+                </div><br/>
+              
+                <div id="div<%= paint.id %>" style="visibility: hidden;">
+                   <h5 style="color:white;">
+                     <%= paint.title rescue "-" %><br/>
+                   </h5>
+                   <p style="color:white;">
+                     Published: <%= paint.published_date rescue "-" %>
+                     <br/>
+                     Size: <%= paint.size.size rescue "-" %> |
+                     Type: <%= paint.paint_type.type_name rescue "-" %><br/>
+                     Created by: <%= paint.artist.name rescue "-" %>
+                   </p>
+                </div>
+              </li>
+
+
+                            <!-- Modal -->
+              <span class="modal fade" id="myModal<%= paint.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <%= image_tag paint.avatar.url, :id => "modelpic" %>
+              </span><!-- /.modal -->
+        <% end %>
+        <div style="float:right;"><%= will_paginate @art_paints  %></div>
+      </ul>
+      </div>
+    </div>
+      <div class="container">
+        <div class="row"><br/>
+            <h2 style="text-align:center;">
+              <span style="color:#e85356;">O</span>ur Artists
+              <br/>
+            </h2><br/><br/><br/>
+            <br/>
+            <ul class="thumbnails thumbnails-1">
+            <% @artists.each do |artist| %>   
+                <li class="span3">
+                        <%= image_tag "artist_dummy.png"%>
+                        <h5 style="color:white;padding:5px;"> 
+                          <div class="btn-group">
+                              <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+                              <%= artist.name %>    <span class="caret"></span>
+                              </button>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="/artist_profile/<%= artist.id %>">Profile</a></li>
+                            <li>  
+                            <%= link_to "Artworks", artist_artwork_path(:artist_id => artist.id) %>
+                            </li>
+                          </ul>
+                          </div>
+                        </h5>
+                </li>
+              <% end %>   
+           
+            </ul><br/><br/><br/>
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="container">
+
+      <div class="row">
+
+        <article class="span9">
+          <h3><span style="color:#e85356;">A</span>bout us</h3>
+            <ul class="list-photo">
+                <li>
+                </li>     
+            </ul>
+        
+        </article>
+        <article class="span3">
+            <h3><span style="color:#e85356;">C</span>ontact Us</h3>
+            <div class="wrapper">
+            <div class="inner-1 overflow extra">
+                <p style="line-height:25px;">
+                  Address: No.77 (A-3),<br/>
+                  Sin Ye Kan Road,<br/>
+                  Ahlone Township,Yangon,Myanmar.<br/>
+                </p>
+                
+                  Phone: +95 542725<br/>
+                  Fax: +95 1 542725<br/>
+                  Email: info@colorcube.co
+                  
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Button to trigger modal -->
+ <% @paint.order("created_at DESC").each do |paint| %>
+
+  <!-- Modal -->
+  <div id="myModal<%= paint.id %>order" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="background:white;">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">New Order</h3>
+    </div>
+     <div class="modal-body">
+         <div id="order_form">
+            <%= form_for(@order) do |f| %>
+              <% if @order.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+                  <ul>
+                  <% @order.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+              <div class="field">
+                <%= f.text_field :order_details,  :class =>"input-xxlarge", :value => paint.title+paint.item_code %>
+              </div>
+
+              <div class="field">
+                <%= f.text_field :customer_name,  :class =>"input-xxlarge", :placeholder => "your name" %>
+              </div>
+              <div class="field">
+                <%= f.text_field :contact_email,  :class =>"input-xxlarge", :placeholder => "your email" %>
+              </div>
+              <div class="field">
+                <%= f.text_field :contact_number,  :class =>"input-xxlarge", :placeholder => "your phone" %>
+              </div>
+              <div class="field">
+                <%= f.text_area :contact_address,  :class =>"input-xxlarge",:placeholder => "shipping address", :rows => "3" %>
+              </div>
+              <div class="field">
+                <%= f.text_area :message, :rows => "6" ,:class =>"input-xxlarge" ,:placeholder => "your message"%>
+              </div>
+      </div>
+
+</div>
+<div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>   
+      <%= f.submit "Send", :class =>"btn btn-1", :id =>"sent_order"  %>
+</div>
+
+<% end %>
+
+
+
+
+  </div>
+
+<% end %>
+
+
+
+
+
+<script>
+  function show(id) {
+    document.getElementById(id).style.visibility = "visible";
+  }
+  function hide(id) {
+    document.getElementById(id).style.visibility = "hidden";
+  }
+</script>
+
+
+
+<script type="text/javascript">
+    $("#sent_order").on("click",function() {
+        alert("Thanks You.Your order is submitted successfully");
+    });
+</script>

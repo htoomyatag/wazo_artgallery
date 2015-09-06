@@ -1,0 +1,74 @@
+<ul class="breadcrumb">
+  <li><a href="#" id="a_style">Admin Panel</a> <span class="divider">/</span></li>
+    <li><a href="#" id="a_style">Dashboard</a> <span class="divider">/</span></li>
+    <li class="active">Paints</li>
+</ul>
+<h1 id="notice"><%= notice %></h1>
+
+<div class="page-header">
+  <h1>Paint <small>details infomation</small></h1>
+</div>
+
+<p class="lead" id="showtxt">
+  <%= image_tag @paint.avatar.url(:medium) %>
+</p>
+
+<p class="lead" id="showtxt">
+  <strong>Item code:</strong>
+  <%= @paint.item_code %>
+</p>
+
+<p class="lead" id="showtxt">
+  <strong>Title:</strong>
+  <%= @paint.title %>
+</p>
+
+<p class="lead" id="showtxt">
+
+  <strong>Paint Type:</strong>
+  <%= @paint.paint_type.type_name rescue "-" %>
+</p>
+
+
+<p class="lead" id="showtxt">
+
+  <strong>Size:</strong>
+  <%= @paint.size.size rescue "-" %>
+</p>
+
+<p class="lead" id="showtxt">
+
+  <strong>Price:</strong>
+  <%= @paint.price rescue "-" %>
+</p>
+<p class="lead" id="showtxt">
+
+  <strong>Artist Name:</strong>
+  <%= @paint.artist.name rescue "-" %>
+</p>
+
+
+<p class="lead" id="showtxt">
+
+  <strong>Is that new arrival:</strong>
+  <%= @paint.new_arrival rescue "-" %>
+</p>
+
+<p class="lead" id="showtxt">
+
+  <strong>Is that color cube art work:</strong>
+  <%= @paint.our_artwork rescue "-" %>
+</p>
+
+
+
+
+<p class="lead" id="showtxt">
+
+  <strong>Paint Type:</strong>
+  <%= @paint.paint_type.type_name rescue "-" %>
+</p>
+
+
+<%= link_to 'Edit', edit_paint_path(@paint) %> |
+<%= link_to 'Back', paints_path %>

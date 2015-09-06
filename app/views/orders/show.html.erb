@@ -1,0 +1,38 @@
+<h1 id="notice"><%= notice %></h1>
+
+<div class="page-header">
+  <h1>Order <small>details infomation</small></h1>
+</div>
+
+<p class="lead" id="showtxt">
+  <strong>Order:</strong>
+  <%= @order.order_details %>
+</p>
+
+<p class="lead" id="showtxt">
+  <strong>Customer name:</strong>
+  <%= @order.customer_name %>
+</p>
+
+<p class="lead" id="showtxt">
+  <strong>Contact email:</strong>
+  <%= @order.contact_email %>
+</p>
+
+<p class="lead" id="showtxt">
+  <strong>Contact number:</strong>
+  <%= @order.contact_number %>
+</p>
+
+<p class="lead" id="showtxt">
+  <strong>Contact address:</strong>
+  <%= @order.contact_address %>
+</p>
+
+<p class="lead" id="showtxt">
+  <strong>Message:</strong>
+  <%= @order.message %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

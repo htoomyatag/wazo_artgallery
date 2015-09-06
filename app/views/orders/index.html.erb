@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>Orders data<small> list of order infomation</small></h1>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Order</th>
+      <th>Customer name</th>
+      <th>Contact email</th>
+      <th>Contact number</th>
+      <th>Contact address</th>
+      <th>Message</th>
+      <th>Artist Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.order_details %></td>
+        <td><%= order.customer_name %></td>
+        <td><%= order.contact_email %></td>
+        <td><%= order.contact_number %></td>
+        <td><%= order.contact_address %></td>
+        <td><%= order.message %></td>
+        <td><%= link_to 'Show', order %></td>
+        <td><%= link_to 'Edit', edit_order_path(order) %></td>
+        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

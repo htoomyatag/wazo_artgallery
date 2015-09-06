@@ -1,0 +1,65 @@
+
+<%= form_for @photo, :html => {:class =>"form-horizontal", :multipart => true } do |f| %>
+  <% if @photo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+          </div>
+  </div>
+
+  <% end %>
+
+ <div class="control-group">
+    <label class="control-label" for="inputEmail">Title</label>
+        <div class="controls">
+    <%= f.text_field :title %>
+        </div>
+  </div>
+
+   <div class="control-group">
+    <label class="control-label" for="inputEmail">Color</label>
+        <div class="controls">
+    <%= f.text_field :color %>
+        </div>
+  </div>
+
+ <div class="control-group">
+    <label class="control-label" for="inputEmail">Size</label>
+        <div class="controls">
+    <%= f.select :size_id, Size.all.collect { |c| [c.size, c.id] }%>
+        </div>
+  </div>
+
+ <div class="control-group">
+    <label class="control-label" for="inputEmail">Price</label>
+        <div class="controls">
+    <%= f.text_field :price %>
+        </div>
+  </div>
+
+ <div class="control-group">
+    <label class="control-label" for="inputEmail">Photographer</label>
+        <div class="controls">
+    <%= f.select :artist_id, Artist.where("painter_type='Photographer'").collect { |c| [c.name, c.id] } %>
+        </div>
+  </div>
+
+ <div class="control-group">
+    <label class="control-label" for="inputEmail">Photo</label>
+        <div class="controls">
+    <%= f.file_field :avatar %>
+        </div>
+  </div>
+
+   <div class="control-group">
+        <div class="controls">
+    <%= f.submit :class => "btn"  %>
+        </div>
+  </div>
+
+<% end %>

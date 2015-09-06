@@ -1,0 +1,68 @@
+<header>
+  <div class="container clearfix">
+    <div class="row">
+          <div class="span12">
+        <div class="navbar navbar_">
+              <div class="container"> 
+              <%= image_tag  "your_logo_here.png", :style => "postition:relative;top:50px;" %> 
+
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse_">Menu <span cartlass="icon-bar"></span> </a>
+            <div class="nav-collapse nav-collapse_  collapse">
+              <ul class="nav sf-menu">
+                <li><a href="/">Home</a></li>
+                <li ><a class="sf-with-ul">Gallery</a>
+                  <ul>
+                    <li><a href="/art_gallery">Art Gallery</a></li><hr>
+                    <li><a href="/photo_gallery">Photo Gallery</a></li>
+                  </ul>
+                </li>
+                <li ><a href="/exhibition">Exhibitions</a></li>
+                <li><a href="/terms_and_conditions">Terms and Conditions</a></li>
+                <li ><a href="/contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+            </div>
+      </div>
+        </div>
+  </div>
+</header>
+
+<div class="bg-content">       
+  <div id="content">
+    <div class="container">
+      <div class="row">
+        <article class="span8">
+         <div class="inner-1">         
+          <ul class="list-blog">
+
+            <li>
+              <h3>Artist Profile</h3><hr/>
+              <p class="lead" id="showtxt">
+            <% if @artist.avatar_file_name.nil? %>
+            <%= image_tag "artist_dummy.png" %>
+            <% else %>
+                  <%= image_tag @artist.avatar.url(:medium) %>
+            <% end %>  
+              
+              </p>
+              <h3><%= @artist.name %></h3>
+              <time datetime="2012-11-09" class="date-1">Date of Birth: <%= @artist.date_of_birth %></time>
+              <div class="clear"></div>
+              <p>Detail Description<br/>
+               <%= @artist.desc %></p>
+            </li>
+          </ul>
+          </div> 
+        </article>
+        <article class="span4">
+          <h3>Advertisements</h3>
+            <div id="ads_photo"><img data-src="holder.js/370%x200" alt="..."></div>
+            <div id="ads_photo"><img data-src="holder.js/370%x200" alt="..."></div>
+            <div id="ads_photo"><img data-src="holder.js/370%x200" alt="..."></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+ </div>

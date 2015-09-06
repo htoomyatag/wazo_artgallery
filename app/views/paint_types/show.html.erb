@@ -1,0 +1,18 @@
+<ul class="breadcrumb">
+	<li><a href="#" id="a_style">Admin Panel</a> <span class="divider">/</span></li>
+    <li><a href="#" id="a_style">Dashboard</a> <span class="divider">/</span></li>
+    <li class="active">Types</li>
+</ul>
+<h1 id="notice"><%= notice %></h1>
+
+<div class="page-header">
+  <h1>Paint Types <small>details infomation</small></h1>
+</div>
+
+<p class="lead" id="showtxt">
+  <strong>Type name:</strong>
+  <%= @paint_type.type_name rescue "-" %>
+</p>
+
+<%= link_to 'Edit', edit_paint_type_path(@paint_type) %> |
+<%= link_to 'Back', paint_types_path %>

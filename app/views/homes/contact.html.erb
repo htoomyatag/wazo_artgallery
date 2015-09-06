@@ -1,0 +1,101 @@
+
+<header>
+  <div class="container clearfix">
+    <div class="row">
+          <div class="span12">
+        <div class="navbar navbar_">
+              <div class="container"> 
+              <%= image_tag  "your_logo_here.png", :style => "postition:relative;top:50px;" %> 
+
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse_">Menu <span cartlass="icon-bar"></span> </a>
+            <div class="nav-collapse nav-collapse_  collapse">
+              <ul class="nav sf-menu">
+                <li ><a href="/">Home</a></li>
+                <li ><a class="sf-with-ul">Gallery</a>
+                  <ul>
+                    <li><a href="/art_gallery">Art Gallery</a></li><hr>
+                    <li><a href="/photo_gallery">Photo Gallery</a></li>
+                  </ul>
+                </li>
+                <li><a href="/exhibition">Exhibitions</a></li>
+                <li><a href="/terms_and_conditions">Terms and Conditions</a></li>
+                <li class="sub-menu active"><a href="/contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+            </div>
+      </div>
+        </div>
+  </div>
+    </header>
+
+
+<div class="bg-content"> 
+      <!--============================== content =================================-->
+      <div id="content">
+    <div class="container">
+          <div class="row">
+        <article class="span8">
+              <h3>Contact us</h3>
+              <div class="inner-1">
+                
+              <%= form_for(@home, :html => {:id => "contact-form"}) do |f|%>
+                 <div class="success"> Contact form submitted! <strong>We will be in touch soon.</strong> </div>
+                  <fieldset>
+                  <div>
+                    <label class="name">
+                      <%= f.text_field :name, :required => true, :class => "text", :placeholder =>"Your Name Here", :class =>"col-12" %>
+                      <br>
+                      <span class="error">*This is not a valid name.</span> <span class="empty">*This field is required.</span> 
+                    </label>
+                  </div>
+                  <div>
+                    <label class="phone">
+                      <%= f.text_field :phone, :required => true, :class => "text", :placeholder =>"Your Phone No. Here", :class =>"col-12" %>
+                      <br>
+                      <span class="error">*This is not a valid phone number.</span> <span class="empty">*This field is required.</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label class="email">
+                      <%= f.text_field :email, :required => true, :class => "text", :placeholder =>"Your Email Here", :class =>"col-12" %>
+                      <br>
+                      <span class="error">*This is not a valid email address.</span> <span class="empty">*This field is required.</span>
+                    </label>
+                  </div>
+                  <div>
+                    <label class="message">                  
+                      <%= f.text_area :message, :required => true, :class => "text", :placeholder =>"Your Message Here", :class =>"col-12"  %>
+                      <br>
+                      <span class="error">*The message is too short.</span> <span class="empty">*This field is required.</span> 
+                    </label>
+                  </div>
+                  <div  class="buttons-wrapper">
+                   <%= f.button "Clear", :class => "btn btn-1", :type => "reset" %>
+                   <%= f.button "Send", :class => "btn btn-1", :type => "submit" %>
+                  </div>
+                </fieldset>
+              <% end %>
+          </div>
+            </article>
+        <article class="span4">
+          <h3>Contact info</h3>
+          <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1909.6099379818768!2d96.17016563994106!3d16.815444777948123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1ecb43025ef7f%3A0x82981f6f6cc08d2a!2sS+Race+Course+St%2C+Yangon%2C+Republic+of+the+Union+of+Myanmar!5e0!3m2!1sen!2s!4v1424680962006"> </iframe>
+          </div>
+          <div class="inner-1 overflow extra">
+                <p style="line-height:25px;">
+                  Address: Address: No.77 (A-3),<br/>
+                  Sin Ye Kan Road,<br/>
+                  Ahlone Township,Yangon,Myanmar.
+                </p>
+                
+                  Phone: +95 542725<br/>
+                  Fax: +95 1 542725<br/>
+                  Email: info@colorcube.co
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

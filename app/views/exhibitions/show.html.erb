@@ -1,0 +1,22 @@
+<ul class="breadcrumb">
+	<li><a href="#" id="a_style">Admin Panel</a> <span class="divider">/</span></li>
+    <li><a href="#" id="a_style">Dashboard</a> <span class="divider">/</span></li>
+    <li class="active">Exhibitions</li>
+</ul>
+<h1 id="notice"><%= notice %></h1>
+
+<div class="page-header">
+  <h1>Exhibition <small>details infomation</small></h1>
+</div>
+
+<p class="lead" id="showtxt">
+  <%= image_tag @exhibition.avatar.url(:medium) %>
+</p>
+
+<p class="lead" id="showtxt">
+  <strong>Title:</strong>
+  <%= @exhibition.title %>
+</p>
+
+<%= link_to 'Edit', edit_exhibition_path(@exhibition) %> |
+<%= link_to 'Back', exhibitions_path %>

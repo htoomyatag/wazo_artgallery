@@ -1,0 +1,44 @@
+<ul class="breadcrumb">
+  <li><a href="#" id="a_style">Admin Panel</a> <span class="divider">/</span></li>
+    <li><a href="#" id="a_style">Dashboard</a> <span class="divider">/</span></li>
+    <li class="active">Photos</li>
+</ul>
+<h1 id="notice"><%= notice %></h1>
+
+<div class="page-header">
+  <h1>Paint <small>details infomation</small></h1>
+</div>
+
+<p class="lead" id="showtxt">
+
+  <%= image_tag @photo.avatar.url(:medium) %>
+</p>
+<p class="lead" id="showtxt">
+
+  <strong>Title:</strong>
+  <%= @photo.title rescue "-" %>
+</p>
+
+<p class="lead" id="showtxt">
+
+  <strong>Color:</strong>
+  <%= @photo.color rescue "-" %>
+</p>
+<p class="lead" id="showtxt">
+
+  <strong>Size:</strong>
+  <%= @photo.size.size rescue "-" %>
+</p>
+<p class="lead" id="showtxt">
+
+  <strong>Price:</strong>
+  <%= @photo.price rescue "-" %>
+</p>
+<p class="lead" id="showtxt">
+
+  <strong>Photographer:</strong>
+  <%= @photo.artist.name rescue "-" %>
+</p>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
